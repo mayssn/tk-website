@@ -1,14 +1,12 @@
-/* src/components/layout/Footer/Footer.css */
 .tk-footer {
   width: 100vw;
   background: rgba(212, 211, 211, 0.52);
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.12); /* ✅ subtle divider */
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.12);
   padding: 25px 40px;
 }
 
 .tk-footer__card {
   width: 100%;
-  /* no “card” look */
   background: transparent;
   border: none;
   border-radius: 0;
@@ -22,37 +20,59 @@
 
 .tk-footer__title {
   margin: 0 0 6px 0;
-  font-size: 20px; /* similar to screenshot */
+  font-size: 20px;
   line-height: 1.2;
   font-weight: 700;
 }
 
 .tk-footer__line {
   margin: 0;
-  font-size: 14px; /* similar to screenshot */
+  font-size: 14px;
   line-height: 1.6;
+}
+
+.tk-footer__subline {
+  margin-top: -2px;
 }
 
 .tk-footer__label {
   font-weight: 500;
 }
 
+/* Make footer text/values black */
 .tk-footer__value,
-.tk-footer__link {
-  font-weight: 400;
+.tk-footer .copytext__btn {
+  color: #111 !important;
 }
 
+/* All footer links black EXCEPT map */
+.tk-footer a:not(.tk-footer__map) {
+  color: #111 !important;
+  text-decoration: none;
+}
+
+.tk-footer a:not(.tk-footer__map):hover {
+  text-decoration: underline;
+}
+
+/* Map link = blue only */
+.tk-footer__map {
+  color: #1a5bd6 !important;
+  text-decoration: none;
+}
+
+.tk-footer__map:hover {
+  text-decoration: underline;
+}
+
+/* Arabic */
 .tk-footer--ar {
   direction: rtl;
   text-align: right;
 }
 
 .tk-footer--ar .tk-footer__card {
-  align-items: flex-start; /* keep block layout consistent */
-}
-
-.tk-footer .copytext__btn {
-  color: #493333 !important;
+  align-items: flex-start;
 }
 
 /* mobile padding */

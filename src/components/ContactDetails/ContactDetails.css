@@ -1,0 +1,78 @@
+.cd {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cd__row {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.cd__icon {
+  width: 20px;
+  height: 20px;
+  color: #111;
+  margin-top: 2px;
+}
+
+.cd__label {
+  font-weight: 600;
+}
+
+.cd__wa {
+  display: inline-block;
+  background: rgba(152, 224, 149, 0.8); /* #98E095 @ 80% */
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.cd__wa:hover {
+  text-decoration: underline;
+}
+.cd__address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* This makes it match your global link color exactly */
+.cd__map,
+.cd__map:link,
+.cd__map:visited {
+  color: #3592d4;
+  font-style: italic;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cd__map:hover {
+  text-decoration: underline;
+}
+
+/* RTL: keep order nice */
+.cd--ar .cd__address {
+  flex-direction: row-reverse;
+}
+.cd--ar {
+  direction: rtl;
+  text-align: right;
+}
+/* Make the email (CopyText button) use the same blue as links */
+.cd .copytext__btn,
+.cd .copytext__btn:link,
+.cd .copytext__btn:visited {
+  color: #3592d4;
+  text-decoration: none;
+}
+
+.cd .copytext__btn:hover {
+  text-decoration: underline;
+  opacity: 0.85; /* matches your global hover behavior */
+}

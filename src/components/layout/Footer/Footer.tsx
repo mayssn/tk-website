@@ -1,12 +1,10 @@
-// src/components/layout/Footer/Footer.jsx
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../../context/LanguageContext";
 import { sanityClient } from "../../../sanityClient";
-import { useIsMobile } from "../../../hooks/useIsMobile";
+import { useIsMobile } from "../../../hooks/useIsMobile.js";
 
 import CopyText from "../../../hooks/CopyText.jsx";
 import { SmartTel } from "../../../hooks/SmartTel";
-import { SmartWhatsApp } from "../../../hooks/SmartWhatsApp";
 import "./Footer.css";
 
 const CONTACT_SETTINGS_QUERY = /* groq */ `
@@ -42,12 +40,17 @@ export default function Footer() {
   if (!data) return null;
 
   const title = isAr ? data.ContactFooterTitle_ar : data.ContactFooterTitle_en;
-  const phone = isAr ? data.phoneNumber_ar : data.phoneNumber_en;
-  const whatsappLabel = isAr ? data.whatsappLabel_ar : data.whatsappLabel_en;
-  const mapLabel = isAr ? data.mapLinkLabel_ar : data.mapLinkLabel_en;
 
+  const phone = isAr ? data.phoneNumber_ar : data.phoneNumber_en;
   const phoneDigits = String(phone || "").replace(/[^\d+]/g, "");
+
+  // "Chat on WhatsApp" label must come from schema (no hardcode)
+  const whatsappChatLabel = isAr
+    ? data.whatsappLabel_ar
+    : data.whatsappLabel_en;
   const waDigits = String(data.whatsappNumber || "").replace(/[^\d]/g, "");
+
+  const mapLabel = isAr ? data.mapLinkLabel_ar : data.mapLinkLabel_en;
 
   return (
     <footer className={`tk-footer ${isAr ? "tk-footer--ar" : ""}`}>
@@ -69,12 +72,10 @@ export default function Footer() {
           </p>
         )}
 
-        {/* TEL — mobile only clickable */}
+        {/* TEL — the only number shown */}
         {phone && (
           <p className="tk-footer__line">
-            <span className="tk-footer__label">
-              {isAr ? "الهاتف:" : "Tel:"}
-            </span>{" "}
+            <span className="tk-footer__label">{isAr ? "هاتف:" : "Tel:"}</span>{" "}
             <SmartTel
               isMobile={isMobile}
               value={phone}
@@ -84,34 +85,36 @@ export default function Footer() {
           </p>
         )}
 
-        {/* WHATSAPP — mobile only clickable */}
-        {data.whatsappNumber && (
-          <p className="tk-footer__line">
-            <span className="tk-footer__label">
-              {whatsappLabel || (isAr ? "واتساب:" : "WhatsApp:")}
-            </span>{" "}
-            <SmartWhatsApp
-              isMobile={isMobile}
-              value={data.whatsappNumber}
-              digitsOnly={waDigits}
-              className="tk-footer__value"
-            />
+        {/* CHAT ON WHATSAPP — mobile only, label from schema */}
+        {isMobile && whatsappChatLabel && waDigits && (
+          <p className="tk-footer__line tk-footer__subline">
+            <a
+              className="tk-footer__chat"
+              href={`https://wa.me/${waDigits}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {whatsappChatLabel}
+            </a>
           </p>
         )}
 
-        {/* MAP — always clickable */}
+        {/* MAP — always clickable, ONLY blue link */}
+        {/* MAP — always clickable, ONLY blue link */}
         {data.mapUrl && (
           <p className="tk-footer__line">
             <span className="tk-footer__label">
               {isAr ? "الموقع:" : "Location:"}
             </span>{" "}
             <a
-              className="tk-footer__link"
+              className="tk-footer__map"
               href={data.mapUrl}
               target="_blank"
               rel="noreferrer"
             >
+              {isAr ? "← " : ""}
               {mapLabel || (isAr ? "افتح في الخرائط" : "Open in Maps")}
+              {!isAr ? " →" : ""}
             </a>
           </p>
         )}

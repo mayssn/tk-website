@@ -8,28 +8,45 @@ import { TRUCKS_PAGE_QUERY } from "../../lib/sanity/queries";
 import PageHero from "../../components/layout/PageHero/PageHero";
 import "./TrucksPage.css";
 
-export default function TrailersPage() {
+export default function TrucksPage() {
   const { lang } = useLanguage();
   const { openOverlay } = useOverlay();
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    client.fetch(TRUCKS_PAGE_QUERY).then(setData);
+    client.fetch(TRUCKS_PAGE_QUERY).then(setData).catch(console.error);
   }, []);
 
   if (!data) return null;
 
-  const title = lang === "ar" ? data.heroTitle_ar : data.heroTitle_en;
-  const imageUrl = data.heroImage
+  const heroTitle = lang === "ar" ? data.heroTitle_ar : data.heroTitle_en;
+  const heroImageUrl = data.heroImage
     ? urlFor(data.heroImage).width(2400).url()
     : "";
 
+  const bodyTitle = lang === "ar" ? data.bodyTitle_ar : data.bodyTitle_en;
+  const bodyText = lang === "ar" ? data.bodyText_ar : data.bodyText_en;
+  const note = lang === "ar" ? data.note_ar : data.note_en;
+
   return (
-    <PageHero
-      title={title}
-      imageUrl={imageUrl}
-      showContact
-      onContactClick={() => openOverlay("contact")}
-    />
+    <>
+      <PageHero
+        title={heroTitle}
+        imageUrl={heroImageUrl}
+        showContact
+        onContactClick={() => openOverlay("contact")}
+      />
+
+      {/* BODY SECTION */}
+      <section className="tk-body">
+        <div className="tk-body__inner">
+          {bodyTitle ? <h2 className="tk-body__title">{bodyTitle}</h2> : null}
+          {bodyText ? <p className="tk-body__text">{bodyText}</p> : null}
+          {note ? <p className="tk-body__note">{note}</p> : null}
+        </div>
+      </section>
+
+      {/* results later */}
+    </>
   );
 }

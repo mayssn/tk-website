@@ -1,0 +1,93 @@
+.co {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.co__intro {
+  margin: 0 10px;
+  max-width: 100%;
+}
+
+/* GRID */
+.co__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: stretch; /* ⬅️ make both columns same height */
+}
+
+/* IMAGE */
+.co__img {
+  height: 250px; /* ⬅️ controls image height */
+  object-fit: cover; /* ⬅️ keeps crop nice */
+  display: block;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Placeholder matches image height */
+.co__imgPlaceholder {
+  width: 100%;
+  height: 300px;
+  background: #eee;
+  border-radius: 10px;
+}
+
+/* DETAILS COLUMN */
+.co__details {
+  display: flex;
+  align-items: center; /* ⬅️ vertical centering */
+  padding: 0 0px;
+}
+
+/* IMPORTANT:
+   do NOT set link colors here.
+   Let global styles handle links.
+*/
+.co__details a {
+  color: inherit;
+}
+
+/* RTL */
+.co--ar {
+  direction: rtl;
+  text-align: right;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .co__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .co__details {
+    align-items: flex-start; /* better on mobile */
+  }
+
+  .co__img,
+  .co__imgPlaceholder {
+    height: 260px;
+  }
+}
+
+@media (max-width: 900px) {
+  .co__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .co__details {
+    align-items: flex-start;
+  }
+
+  /* FIX MOBILE IMAGE */
+  .co__img,
+  .co__imgPlaceholder {
+    width: 100%;
+    max-width: 100%;
+    height: 180px; /* smaller + consistent */
+    object-fit: cover; /* clean crop */
+    object-position: center;
+    border-radius: 12px;
+  }
+}

@@ -1,0 +1,81 @@
+/* Card wrapper */
+.excard {
+  width: 100%;
+}
+
+/* Two-column layout like screenshot */
+.excard__grid {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr; /* left | line | right */
+  gap: 0;
+  align-items: start;
+}
+
+/* Left + Right padding similar to screenshot */
+.excard__left,
+.excard__right {
+  padding: 10px 36px 20px;
+}
+
+/* Title on left */
+.excard__title {
+  margin: 0 0 24px 0;
+}
+
+/* Divider line */
+.excard__divider {
+  width: 2px;
+  background: #111;
+  opacity: 1;
+}
+
+/* PortableText typography inside */
+.excard__body {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Make PortableText lists look like the screenshot */
+.excard__body ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.excard__body li {
+  margin: 8px 0;
+}
+
+/* RTL */
+.excard--ar {
+  direction: rtl;
+  text-align: right;
+}
+
+.excard--ar .excard__body ul {
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+/* MOBILE: stack + horizontal divider */
+@media (max-width: 900px) {
+  .excard__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .excard__left,
+  .excard__right {
+    padding: 10px 18px 18px;
+  }
+
+  .excard__divider {
+    width: 100%;
+    height: 2px; /* horizontal line */
+    background: #111;
+    margin: 10px 0;
+  }
+
+  .excard__title {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+}

@@ -1,0 +1,44 @@
+.tk-body {
+  width: 100%;
+  background: #fff;
+  padding: 40px 20px;
+}
+
+.tk-body__inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.tk-body__title {
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+
+.tk-body__text {
+  margin: 0 0 14px;
+  color: #222;
+}
+
+.tk-body__note {
+  margin: 18px 0 0;
+  font-style: italic;
+  color: #444;
+}
+
+.tk-results {
+  padding: 40px 20px 80px;
+}
+
+.tk-results__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .tk-body {
+    padding: 28px 18px;
+  }
+}

@@ -1,0 +1,38 @@
+.find-my-unit {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ✅ stop image from stretching / breaking mobile */
+.find-my-unit__img {
+  width: 100%;
+  max-width: 520px; /* keeps it sane */
+  height: auto; /* prevents distortion */
+  display: block;
+  margin: 0 auto 18px;
+  border-radius: 12px;
+}
+
+/* OPTIONAL: make it shorter on mobile (cropped nicely) */
+@media (max-width: 900px) {
+  .find-my-unit__img {
+    max-width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.find-my-unit__btn {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: 1px solid #111;
+  background: transparent;
+  cursor: pointer;
+}
+
+.find-my-unit__btn:hover {
+  background: #111;
+  color: #fff;
+}

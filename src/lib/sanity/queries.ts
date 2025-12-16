@@ -1,16 +1,48 @@
-// NAVIGATION
+// src/lib/sanity/queries.ts
+
+// =========================
+// SITE SETTINGS (logo + nav only)
+// =========================
 export const SITE_SETTINGS_QUERY = /* groq */ `
 *[_type=="siteSettings"][0]{
   logo,
-  navLinks[]{
-    label_en,
-    label_ar,
-    href
-  }
+  navLinks[] { label_en, label_ar, href }
 }
 `;
 
+// =========================
+// CONTACT SETTINGS (footer + contact overlay)
+// =========================
+export const CONTACT_SETTINGS_QUERY = /* groq */ `
+*[_type=="contactSettings"][0]{
+  contactPageImage,
+  ConactPageTitle_en,
+  ContactPageTitle_ar,
+  ContactPageIntro_en,
+  ContactPageIntro_ar,
+
+  ContactFooterTitle_en,
+  ContactFooterTitle_ar,
+
+  emailAddress,
+  phoneNumber_en,
+  phoneNumber_ar,
+
+  whatsappLabel_en,
+  whatsappLabel_ar,
+  whatsappNumber,
+
+  address_en,
+  address_ar,
+  mapLinkLabel_en,
+  mapLinkLabel_ar,
+  mapUrl
+}
+`;
+
+// =========================
 // HOME PAGE
+// =========================
 export const HOME_PAGE_QUERY = /* groq */ `
 *[_type=="homePage"][0]{
   heroTitle_en,
@@ -56,7 +88,9 @@ export const HOME_PAGE_QUERY = /* groq */ `
 }
 `;
 
+// =========================
 // UNITS (used everywhere)
+// =========================
 export const UNITS_QUERY = /* groq */ `
 *[_type=="unit"]{
   _id,
@@ -71,16 +105,20 @@ export const UNITS_QUERY = /* groq */ `
   summary_ar,
   description_en,
   description_ar,
-  brochureFile
+  brochureUrl
 }
 `;
 
+// =========================
 // FIND MY UNIT LABELS
+// =========================
 export const FIND_LABELS_QUERY = /* groq */ `
 *[_type=="findMyUnitLabels"][0]
 `;
 
+// =========================
 // TRAILERS PAGE
+// =========================
 export const TRAILERS_PAGE_QUERY = /* groq */ `
 *[_type=="trailersPage"][0]{
   heroImage,
@@ -95,36 +133,9 @@ export const TRAILERS_PAGE_QUERY = /* groq */ `
 }
 `;
 
-// SIMPLE PAGE (trailers / trucks)
-export const SIMPLE_PAGE_QUERY = (slug: string) => /* groq */ `
-*[_type=="simplePage" && slug=="${slug}"][0]{
-  heroImage,
-  heroTitle_en,
-  heroTitle_ar,
-  bodyTitle_en,
-  bodyTitle_ar,
-  bodyText_en,
-  bodyText_ar,
-  note_en,
-  note_ar
-}
-`;
-
-// MARINE PAGE
-export const MARINE_PAGE_QUERY = /* groq */ `
-*[_type=="marinePage"][0]
-`;
-
-// CONTACT SETTINGS
-export const CONTACT_SETTINGS_QUERY = /* groq */ `
-*[_type=="contactSettings"][0]
-`;
-
-// EXPLANATION PAGE
-export const EXPLANATION_PAGE_QUERY = /* groq */ `
-*[_type=="explanationPage"][0]
-`;
+// =========================
 // TRUCKS PAGE
+// =========================
 export const TRUCKS_PAGE_QUERY = /* groq */ `
 *[_type=="trucksPage"][0]{
   heroImage,
@@ -137,4 +148,36 @@ export const TRUCKS_PAGE_QUERY = /* groq */ `
   note_en,
   note_ar
 }
+`;
+
+// =========================
+// SIMPLE PAGE (parameterized safely)
+// IMPORTANT: assumes your simplePage has slug field as { current: string }
+// =========================
+export const SIMPLE_PAGE_QUERY = /* groq */ `
+*[_type=="simplePage" && slug.current == $slug][0]{
+  heroImage,
+  heroTitle_en,
+  heroTitle_ar,
+  bodyTitle_en,
+  bodyTitle_ar,
+  bodyText_en,
+  bodyText_ar,
+  note_en,
+  note_ar
+}
+`;
+
+// =========================
+// MARINE PAGE
+// =========================
+export const MARINE_PAGE_QUERY = /* groq */ `
+*[_type=="marinePage"][0]
+`;
+
+// =========================
+// EXPLANATION PAGE
+// =========================
+export const EXPLANATION_PAGE_QUERY = /* groq */ `
+*[_type=="explanationPage"][0]
 `;
