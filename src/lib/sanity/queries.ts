@@ -92,20 +92,24 @@ export const HOME_PAGE_QUERY = /* groq */ `
 // UNITS (used everywhere)
 // =========================
 export const UNITS_QUERY = /* groq */ `
-*[_type=="unit"]{
+*[_type=="unit"] | order(sortOrder asc, name asc){
   _id,
   name,
-  powerType,
+  "slug": slug.current,
+
   vehicleType,
-  supportsHeating,
-  forElectricVehicle,
+  vehicleEnergy,
+  powerType,
   hasStandby,
+  coolingAndHeating,
+
   image,
   summary_en,
   summary_ar,
   description_en,
   description_ar,
-  brochureUrl
+  brochureUrl,
+  sortOrder
 }
 `;
 

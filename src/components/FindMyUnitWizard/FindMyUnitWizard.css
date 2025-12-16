@@ -1,0 +1,252 @@
+/* =========================
+   WRAPPER
+========================= */
+
+.fmu {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* =========================
+   QUESTION BLOCK
+========================= */
+
+.fmu__block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.fmu__q {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+}
+
+/* =========================
+   TOGGLE ROWS (Pills / Segments)
+========================= */
+
+.fmu__pillRow,
+.fmu__segRow {
+  display: flex;
+  gap: 0px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+/* shared toggle style */
+.fmu__pill,
+.fmu__seg {
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 1px solid #d8d8d8;
+  background: #f2f2f2;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  line-height: 1;
+  color: #111;
+
+  cursor: pointer;
+
+  transition:
+    background: 0.18s ease,
+    border-color: 0.18s ease,
+    transform 0.06s ease;
+}
+
+.fmu__pill:hover,
+.fmu__seg:hover {
+  background: #ebebeb;
+  border-color: #cfcfcf;
+}
+
+.fmu__pill:active,
+.fmu__seg:active {
+  transform: scale(0.98);
+}
+
+/* active = slightly darker grey (not black) */
+.fmu__pill.is-active,
+.fmu__seg.is-active {
+  background: #dcdcdc;
+  border-color: #c7c7c7;
+  color: #111;
+}
+
+/* remove ugly blue ring, but keep accessibility with subtle shadow */
+.fmu__pill:focus,
+.fmu__seg:focus,
+.fmu__dropdownBtn:focus,
+.fmu__diff:focus,
+.fmu__dropdownItem:focus {
+  outline: none;
+}
+
+.fmu__pill:focus-visible,
+.fmu__seg:focus-visible,
+.fmu__dropdownBtn:focus-visible,
+.fmu__diff:focus-visible,
+.fmu__dropdownItem:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  border-color: #6d0000;
+}
+
+
+
+/* =========================
+   POWER DROPDOWN
+========================= */
+
+.fmu__powerRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Dropdown wrapper */
+.fmu__dropdown {
+  position: relative;
+  width: 320px;
+}
+
+/* Closed button */
+.fmu__dropdownBtn {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+
+  padding: 14px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  border-radius: 10px;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.fmu__dropdownBtn:hover {
+  border-color: #cfcfcf;
+  background: #fafafa;
+}
+
+.fmu__dropdownLabel {
+  font-size: 14px;
+  color: #888;
+}
+
+.fmu__dropdownLabel.has-value {
+  color: #111;
+}
+
+.fmu__chev {
+  transition: transform 0.2s ease;
+}
+
+.fmu__chev.is-open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.fmu__dropdownMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+
+  overflow: hidden;
+  z-index: 20;
+
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* Dropdown item */
+.fmu__dropdownItem {
+  width: 100%;
+  padding: 14px 16px;
+  text-align: left;
+
+  background: #fff;
+  border: none;
+
+  cursor: pointer;
+}
+
+.fmu__dropdownItem:hover {
+  background: #f6f6f6;
+}
+
+.fmu__itemTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+
+.fmu__itemDesc {
+  font-size: 13px;
+  font-style: italic;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Divider */
+.fmu__divider {
+  height: 1px;
+  background: #ededed;
+}
+
+/* =========================
+   WHAT’S THE DIFFERENCE
+========================= */
+
+.fmu__diff {
+  -webkit-appearance: none;
+
+  background: none;
+  border: none;
+margin-left: 30px;
+color:rgb(67, 126, 236);
+  font-style: italic;
+  text-decoration: underline;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+
+  padding: 6px 0;
+}
+
+.fmu__diff:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .fmu__powerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .fmu__dropdown {
+    width: 100%;
+  }
+}

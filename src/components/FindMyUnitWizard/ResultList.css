@@ -1,0 +1,51 @@
+/* =========================
+   RESULTS WRAPPER
+========================= */
+
+.fmu__results {
+  width: 100%;
+}
+
+/* Title */
+.fmu__resultsTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 18px 0;
+}
+
+/* =========================
+   LIST OF CARDS
+========================= */
+
+.fmu__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 26px; /* spacing between UnitCards */
+}
+
+/* =========================
+   EMPTY / NOTICE TEXT
+========================= */
+
+.fmu__results .fmu__notice {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .fmu__resultsTitle {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .fmu__cards {
+    gap: 20px;
+  }
+}
