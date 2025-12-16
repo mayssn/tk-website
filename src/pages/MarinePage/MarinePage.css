@@ -1,0 +1,35 @@
+.marine-body {
+  background: #fff;
+  padding: 70px 20px 90px;
+}
+
+.marine-body__wrap {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.marine-body__title {
+  margin: 0 0 34px;
+}
+
+.marine-body__intro {
+  margin: 0 0 38px;
+}
+
+.marine-body__list {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.marine-body__itemTitle {
+  margin: 0 0 10px;
+}
+
+.marine-body__itemDesc {
+  margin: 0 0 12px;
+}
+
+.marine-body__link {
+  color: rgb(27, 93, 237);
+}

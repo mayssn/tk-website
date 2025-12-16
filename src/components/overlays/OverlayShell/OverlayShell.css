@@ -1,0 +1,40 @@
+.tk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.tk-overlay__panel {
+  position: relative;
+  background: #fff;
+  width: min(1000px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  border-radius: 0;
+}
+
+.tk-overlay__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.tk-overlay__title {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+}
+
+.tk-overlay__content {
+  font-size: 16px;
+  line-height: 1.6;
+}

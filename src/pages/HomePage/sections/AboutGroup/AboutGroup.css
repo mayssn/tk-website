@@ -1,0 +1,21 @@
+.about {
+  background: #fff;
+  padding: 70px 20px 90px;
+}
+
+.about__wrap {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.about__title {
+  margin: 0 0 14px;
+}
+
+.about__body {
+  color: #222;
+}
+
+.about__body p {
+  margin: 0;
+}

@@ -1,0 +1,29 @@
+.copytext {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.copytext__btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: #1a5bd6;
+  font: inherit;
+}
+.copytext__btn:hover {
+  text-decoration: underline;
+}
+.copytext__toast {
+  position: absolute;
+  top: -28px;
+  inset-inline-start: 0;
+  background: #e8f3ff;
+  border: 1px solid #9cc9ff;
+  color: #0b3a66;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}

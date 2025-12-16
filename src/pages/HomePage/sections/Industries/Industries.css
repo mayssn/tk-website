@@ -1,0 +1,56 @@
+.industries {
+  background: #fff;
+  padding: 30px 20px 90px;
+}
+
+.industries__title {
+  text-align: center;
+  margin: 0 0 50px;
+}
+
+.industries__grid {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 44px;
+}
+
+.industries__card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px;
+}
+
+.industries__icon {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+}
+
+.industries__label {
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 820px) {
+  .industries__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,83 @@
+/* src/components/layout/Footer/Footer.css */
+.tk-footer {
+  width: 100vw;
+  background: rgba(212, 211, 211, 0.52);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.12); /* ✅ subtle divider */
+  padding: 25px 40px;
+}
+
+.tk-footer__card {
+  width: 100%;
+  /* no “card” look */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.tk-footer__title {
+  margin: 0 0 6px 0;
+  font-size: 20px; /* similar to screenshot */
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.tk-footer__line {
+  margin: 0;
+  font-size: 14px; /* similar to screenshot */
+  line-height: 1.6;
+}
+
+.tk-footer__label {
+  font-weight: 500;
+}
+
+.tk-footer__value,
+.tk-footer__link {
+  font-weight: 400;
+}
+
+.tk-footer__link {
+  color: #1a5bd6;
+  text-decoration: none;
+}
+
+.tk-footer__link:hover {
+  text-decoration: underline;
+}
+
+.tk-footer--ar {
+  direction: rtl;
+  text-align: right;
+}
+
+.tk-footer--ar .tk-footer__card {
+  align-items: flex-start; /* keep block layout consistent */
+}
+
+/* Force phone/whatsapp value link to stay black (beats global a{} rules) */
+.tk-footer a.tk-footer__value,
+.tk-footer a.tk-footer__value:link,
+.tk-footer a.tk-footer__value:visited,
+.tk-footer a.tk-footer__value:hover,
+.tk-footer a.tk-footer__value:active {
+  color: #111 !important;
+}
+.tk-footer .copytext__btn {
+  color: #111 !important;
+}
+
+.tk-footer .copytext__btn:hover {
+  text-decoration: underline; /* optional, subtle affordance */
+}
+/* mobile padding */
+@media (max-width: 768px) {
+  .tk-footer {
+    padding: 16px 18px;
+  }
+}

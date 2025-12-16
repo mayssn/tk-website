@@ -1,0 +1,55 @@
+.trusted {
+  background: #fff;
+  padding: 60px 0 80px;
+}
+
+.trusted__title {
+  max-width: 980px;
+  margin: 0 auto 28px;
+  padding: 0 20px;
+}
+
+/* full-bleed marquee */
+.trusted__marquee {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+/* scrolling track */
+.trusted__track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite; /* SLOWER */
+  will-change: transform;
+}
+
+/* logo wrapper */
+.trusted__logo {
+  flex: 0 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+}
+
+/* logo image */
+.trusted__logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* seamless infinite motion */
+@keyframes scroll {
+  from {
+    transform: translateX(0); /* STARTS VISIBLE */
+  }
+  to {
+    transform: translateX(-50%); /* EXACT HALF (because array is duplicated) */
+  }
+}
+
+/* optional pause on hover */
+.trusted__marquee:hover .trusted__track {
+  animation-play-state: paused;
+}

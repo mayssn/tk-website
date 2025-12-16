@@ -1,0 +1,260 @@
+/* =========================
+   NAV WRAPPER
+========================= */
+
+:root {
+  --nav-h: 80px;
+}
+
+.tk-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-h);
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.tk-nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.tk-nav__logo {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.tk-nav__logo img {
+  height: 48px; /* mobile */
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Desktop logo */
+@media (min-width: 768px) {
+  .tk-nav__logo img {
+    height: 56px;
+  }
+}
+
+/* =========================
+   DESKTOP LINKS
+========================= */
+
+.tk-nav__links {
+  display: none;
+  align-items: center;
+  gap: 22px;
+}
+
+/* ALL NAV ITEMS (links + contact + lang) */
+.tk-nav__links a,
+.tk-nav__contact,
+.tk-nav__lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+/* ACTIVE LINK */
+/* ACTIVE LINK (desktop) */
+.tk-nav__links a.active {
+  font-weight: 700;
+  color: #4295d0;
+}
+
+/* HOVER + CLICK (desktop) */
+.tk-nav__links a:hover,
+.tk-nav__links a:active {
+  color: #4295d0;
+}
+
+/* ACTIVE LINK (mobile) */
+.tk-nav__mobileLink.active {
+  font-weight: 700;
+  color: #4295d0;
+}
+
+/* HOVER + CLICK (mobile) */
+.tk-nav__mobileLink:hover,
+.tk-nav__mobileLink:active {
+  color: #4295d0;
+}
+
+/* HOVER + CLICK (ALL ITEMS) */
+.tk-nav__links a:hover,
+.tk-nav__links a:active,
+.tk-nav__contact:hover,
+.tk-nav__contact:active,
+.tk-nav__lang:hover,
+.tk-nav__lang:active {
+  color: #4295d0;
+}
+
+/* LANGUAGE TOGGLE */
+.tk-nav__lang {
+  padding: 8px 12px;
+}
+
+/* REMOVE FOCUS OUTLINES */
+.tk-nav__links a:focus,
+.tk-nav__links a:focus-visible,
+.tk-nav__contact:focus,
+.tk-nav__contact:focus-visible,
+.tk-nav__lang:focus,
+.tk-nav__lang:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* =========================
+   HAMBURGER (mobile)
+========================= */
+
+.tk-nav__burger {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.tk-nav__burgerLine {
+  width: 22px;
+  height: 2px;
+  background: #111;
+}
+
+/* =========================
+   MOBILE MENU OVERLAY
+========================= */
+
+.tk-nav__mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.tk-nav__mobile.is-open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* BACKDROP */
+.tk-nav__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border: none;
+}
+
+/* SLIDE PANEL */
+.tk-nav__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(86vw, 360px);
+  height: 100%;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.tk-nav__panel[dir="rtl"] {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.tk-nav__mobile.is-open .tk-nav__panel {
+  transform: translateX(0);
+}
+
+/* PANEL HEADER */
+.tk-nav__panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.tk-nav__close {
+  font-size: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* PANEL LINKS */
+.tk-nav__panelLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tk-nav__mobileLink {
+  padding: 12px 10px;
+  text-decoration: none;
+  color: #111;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.tk-nav__mobileLink.active {
+  font-weight: 700;
+}
+
+.tk-nav__mobileLink:hover,
+.tk-nav__mobileLink:active {
+  color: #4295d0;
+}
+
+/* =========================
+   DESKTOP BREAKPOINT
+========================= */
+
+@media (min-width: 768px) {
+  .tk-nav__burger {
+    display: none;
+  }
+
+  .tk-nav__links {
+    display: flex;
+  }
+
+  .tk-nav__mobile {
+    display: none;
+  }
+}
