@@ -30,6 +30,7 @@ export default function MarinePage() {
   const productTypes = Array.isArray(data.productTypes)
     ? data.productTypes
     : [];
+  const arrow = lang === "ar" ? "←" : "→";
 
   return (
     <>

@@ -1,3 +1,5 @@
+/* ProductsServices.css */
+
 .ps {
   background: #fff;
   padding: 70px 20px 90px;
@@ -12,9 +14,10 @@
 
 .ps__title {
   text-align: center;
-  margin: 0 0 40px;
+  margin: 0 0 70px;
 }
 
+/* LAYOUT */
 .ps__grid {
   display: grid;
   grid-template-columns: 420px 1fr;
@@ -29,6 +32,7 @@
   display: block;
 }
 
+/* ROW */
 .ps__rowbtn {
   width: 100%;
   display: flex;
@@ -40,7 +44,6 @@
 
 .ps__rowtitle {
   margin: 0;
-  font-weight: 700;
 }
 
 .ps__icon {
@@ -48,6 +51,7 @@
   line-height: 1;
 }
 
+/* PANEL */
 .ps__panel {
   background: #ededed;
   padding: 18px 18px 16px;
@@ -59,21 +63,19 @@
   color: #444;
 }
 
+/* LINKS */
 .ps__links {
   display: flex;
   gap: 26px;
   flex-wrap: wrap;
 }
 
-.ps__link {
-  color: #1f3cff;
-  font-weight: 600;
-}
-
+/* DIVIDER */
 .ps__sep {
   border-bottom: 2px dotted #cfcfcf;
 }
 
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .ps__wrap {
     padding: 46px 24px;

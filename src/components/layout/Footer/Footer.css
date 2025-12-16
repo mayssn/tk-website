@@ -42,15 +42,6 @@
   font-weight: 400;
 }
 
-.tk-footer__link {
-  color: #1a5bd6;
-  text-decoration: none;
-}
-
-.tk-footer__link:hover {
-  text-decoration: underline;
-}
-
 .tk-footer--ar {
   direction: rtl;
   text-align: right;
@@ -60,21 +51,10 @@
   align-items: flex-start; /* keep block layout consistent */
 }
 
-/* Force phone/whatsapp value link to stay black (beats global a{} rules) */
-.tk-footer a.tk-footer__value,
-.tk-footer a.tk-footer__value:link,
-.tk-footer a.tk-footer__value:visited,
-.tk-footer a.tk-footer__value:hover,
-.tk-footer a.tk-footer__value:active {
-  color: #111 !important;
-}
 .tk-footer .copytext__btn {
-  color: #111 !important;
+  color: #493333 !important;
 }
 
-.tk-footer .copytext__btn:hover {
-  text-decoration: underline; /* optional, subtle affordance */
-}
 /* mobile padding */
 @media (max-width: 768px) {
   .tk-footer {
