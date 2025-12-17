@@ -216,20 +216,19 @@
 ========================= */
 
 .fmu__diff {
-  -webkit-appearance: none;
-
   background: none;
   border: none;
-margin-left: 30px;
-color:rgb(67, 126, 236);
+  color: rgb(67, 126, 236);
   font-style: italic;
   text-decoration: underline;
   font-size: 13px;
   cursor: pointer;
-  white-space: nowrap;
 
-  padding: 6px 0;
+  margin-left: 0;        /* ✅ remove push */
+  white-space: normal;   /* ✅ allow wrap */
+  max-width: 100%;
 }
+
 
 .fmu__diff:hover {
   text-decoration: underline;
@@ -250,3 +249,5 @@ color:rgb(67, 126, 236);
     width: 100%;
   }
 }
+  .fmu__diff { margin-left: 30px; white-space: nowrap; }
+
