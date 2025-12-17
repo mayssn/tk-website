@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLanguage } from "../../context/LanguageContext";
-import { useOverlay } from "../../context/OverlayContext";
-import { client } from "../../lib/sanity/client";
-import { urlFor } from "../../lib/sanity/image";
-import { MARINE_PAGE_QUERY } from "../../lib/sanity/queries";
+import { useLanguage } from "@/context/LanguageContext";
+import { useOverlay } from "@/context/OverlayContext";
+import { client } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/sanity/image";
+import { MARINE_PAGE_QUERY } from "@/lib/sanity/queries";
 
-import PageHero from "../../components/layout/PageHero/PageHero";
+import PageHero from "@/components/layout/PageHero/PageHero";
 import "./MarinePage.css";
 
 export default function MarinePage() {

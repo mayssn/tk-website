@@ -1,21 +1,16 @@
 // src/pages/TrucksPage/TrucksPage.tsx
 import { useEffect, useState } from "react";
-import { useLanguage } from "../../context/LanguageContext";
-import { useOverlay } from "../../context/OverlayContext";
-import { client } from "../../lib/sanity/client";
-import { urlFor } from "../../lib/sanity/image";
-import { TRUCKS_PAGE_QUERY } from "../../lib/sanity/queries";
+import { useLanguage } from "@/context/LanguageContext";
+import { useOverlay } from "@/context/OverlayContext";
+import { client } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/sanity/image";
+import { TRUCKS_PAGE_QUERY } from "@/lib/sanity/queries";
 
-import PageHero from "../../components/layout/PageHero/PageHero";
-import FindMyUnitWizard from "../../components/FindMyUnitWizard/FindMyUnitWizard";
-import ResultList from "../../components/FindMyUnitWizard/ResultList";
+import PageHero from "@/components/layout/PageHero/PageHero";
+import FindMyUnitWizard from "@/components/FindMyUnitWizard/FindMyUnitWizard";
+import ResultList from "@/components/FindMyUnitWizard/ResultList";
 
-import type {
-  Need,
-  Vehicle,
-  Energy,
-  PowerChoice,
-} from "../website/findMyUnit/FindMyUnit/FindMyUnit";
+import type { Need, Vehicle, Energy, PowerChoice } from "@/types/FindMyUnit";
 
 import "./TrucksPage.css";
 

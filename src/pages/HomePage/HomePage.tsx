@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { client } from "../../lib/sanity/client";
-import { urlFor } from "../../lib/sanity/image";
-import { HOME_PAGE_QUERY } from "../../queries/Homepage";
-import { useLanguage } from "../../context/LanguageContext";
+import { client } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/sanity/image";
+import { HOME_PAGE_QUERY } from "@/queries/Homepage"; // ✅ use your existing file
+import { useLanguage } from "@/context/LanguageContext";
 
-import HeroHomepage from "./sections/HeroHomepage/HeroHomepage";
-import Industries from "./sections/Industries/Industries";
-import ProductsServices from "./sections/ProductsServices/ProductsServices";
-import FindMyUnit from "./sections/FindMyUnit/FindMyUnit";
-import AboutGroup from "./sections/AboutGroup/AboutGroup";
-import TrustedBy from "./sections/TrustedBy/TrustedBy";
+import HeroHomepage from "@/pages/HomePage/sections/HeroHomepage/HeroHomepage";
+import Industries from "@/pages/HomePage/sections/Industries/Industries";
+import ProductsServices from "@/pages/HomePage/sections/ProductsServices/ProductsServices";
+import FindMyUnit from "@/pages/HomePage/sections/FindMyUnit/FindMyUnit";
+import AboutGroup from "@/pages/HomePage/sections/AboutGroup/AboutGroup";
+import TrustedBy from "@/pages/HomePage/sections/TrustedBy/TrustedBy";
 
 import "./HomePage.css";
 

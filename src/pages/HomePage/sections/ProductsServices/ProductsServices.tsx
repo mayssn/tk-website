@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { urlFor } from "../../../../lib/sanity/image";
-import { useLanguage } from "../../../../context/LanguageContext";
-import { useOverlay } from "../../../../context/OverlayContext";
+import { urlFor } from "@/lib/sanity/image";
+import { useLanguage } from "@/context/LanguageContext";
+import { useOverlay } from "@/context/OverlayContext";
 import "./ProductsServices.css";
 
 type Service = {
@@ -50,7 +50,8 @@ export default function ProductsServices({
     lang === "ar"
       ? "تواصل معنا لمزيد من المعلومات"
       : "Contact us for more information";
-
+  console.log("servicesGeneralImage prop:", image);
+  console.log("leftImageUrl:", leftImageUrl);
   return (
     <section className="ps">
       <div className="ps__wrap">

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLanguage } from "../../../context/LanguageContext";
-import { sanityClient } from "../../../sanityClient";
-import { useIsMobile } from "../../../hooks/useIsMobile.js";
+import { useLanguage } from "@/context/LanguageContext";
+import { sanityClient } from "@/sanityClient";
+import { useIsMobile } from "@/hooks/useIsMobile.ts";
 
-import CopyText from "../../../hooks/CopyText.jsx";
-import { SmartTel } from "../../../hooks/SmartTel";
+import CopyText from "@/hooks/CopyText.jsx";
+import { SmartTel } from "@/hooks/SmartTel";
 import "./Footer.css";
 
 const CONTACT_SETTINGS_QUERY = /* groq */ `
@@ -28,7 +28,7 @@ export default function Footer() {
   const isAr = lang === "ar";
   const isMobile = useIsMobile();
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
 
   useEffect(() => {
     sanityClient

@@ -1,16 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "../../context/LanguageContext";
-import { useOverlay } from "../../context/OverlayContext";
-import { client } from "../../lib/sanity/client";
-import { FIND_LABELS_QUERY } from "../../lib/sanity/queries";
+import { useLanguage } from "@/context/LanguageContext";
+import { useOverlay } from "@/context/OverlayContext";
+import { client } from "@/lib/sanity/client";
+import { FIND_LABELS_QUERY } from "@/lib/sanity/queries";
 import "./FindMyUnitWizard.css";
 
-import type {
-  Need,
-  Vehicle,
-  Energy,
-  PowerChoice,
-} from "../../pages/website/findMyUnit/FindMyUnit/FindMyUnit";
+import type { Need, Vehicle, Energy, PowerChoice } from "@/types/findMyUnit";
 
 type Labels = Record<string, any>;
 

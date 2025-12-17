@@ -1,5 +1,5 @@
-import CopyText from "../../../src/hooks/CopyText.jsx";
-import { SmartTel } from "../../../src//hooks/SmartTel";
+import CopyText from "@/hooks/CopyText.jsx";
+import { SmartTel } from "@/hooks/SmartTel";
 import "./ContactDetails.css";
 
 function IconMail() {

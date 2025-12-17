@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import FindMyUnitWizard from "../../../../components/FindMyUnitWizard/FindMyUnitWizard";
-import ResultList from "../../../../components/FindMyUnitWizard/ResultList";
-import { urlFor } from "../../../../lib/sanity/image";
+import FindMyUnitWizard from "@/components/FindMyUnitWizard/FindMyUnitWizard";
+import ResultList from "@/components/FindMyUnitWizard/ResultList";
+import { urlFor } from "@/lib/sanity/image";
 import "./FindMyUnit.css";
 
 export type Need = "cooling" | "coolingHeating";

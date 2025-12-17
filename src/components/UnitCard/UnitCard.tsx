@@ -2,14 +2,15 @@ import { useLanguage } from "../../context/LanguageContext";
 import { urlFor } from "../../lib/sanity/image";
 import "./UnitCard.css";
 
-export default function UnitCard({ unit, onContact }) {
+type Props = { unit: any; onContact?: () => void };
+
+export default function UnitCard({ unit, onContact }: Props) {
   const { lang } = useLanguage();
 
   const summary = lang === "ar" ? unit?.summary_ar : unit?.summary_en;
   const description =
     lang === "ar" ? unit?.description_ar : unit?.description_en;
-
-  const brochureHref = unit?.brochureUrl; // ✅ schema field (url string)
+  const brochureHref = unit?.brochureUrl;
 
   return (
     <div className="unit-card">
@@ -48,13 +49,15 @@ export default function UnitCard({ unit, onContact }) {
             </a>
           ) : null}
 
-          <button
-            type="button"
-            className="btn btn--primary"
-            onClick={onContact}
-          >
-            Contact Us
-          </button>
+          {onContact ? (
+            <button
+              type="button"
+              className="btn btn--primary"
+              onClick={onContact}
+            >
+              Contact Us
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

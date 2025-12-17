@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useLanguage } from "../../context/LanguageContext";
-import { useOverlay } from "../../context/OverlayContext";
-import { client } from "../../lib/sanity/client";
-import { urlFor } from "../../lib/sanity/image";
-import { TRAILERS_PAGE_QUERY, UNITS_QUERY } from "../../lib/sanity/queries";
+import { useLanguage } from "@/context/LanguageContext";
+import { useOverlay } from "@/context/OverlayContext";
+import { client } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/sanity/image";
+import { TRAILERS_PAGE_QUERY, UNITS_QUERY } from "@/lib/sanity/queries";
 
-import PageHero from "../../components/layout/PageHero/PageHero";
-import UnitCard from "../../components/UnitCard/UnitCard";
+import PageHero from "@/components/layout/PageHero/PageHero";
+import UnitCard from "@/components/UnitCard/UnitCard";
 import "./TrailersPage.css";
 
 export default function TrailersPage() {

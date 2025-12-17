@@ -1,6 +1,6 @@
 import "./Industries.css";
-import { urlFor } from "../../../../lib/sanity/image";
-import { useLanguage } from "../../../../context/LanguageContext";
+import { urlFor } from "@/lib/sanity/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 type IndustryItem = {
   name_en?: string;

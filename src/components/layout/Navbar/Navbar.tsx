@@ -1,9 +1,9 @@
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import { useLanguage } from "../../../context/LanguageContext";
-import { useOverlay } from "../../../context/OverlayContext";
-import { useSiteSettings } from "../../../hooks/useSiteSettings";
-import { urlFor } from "../../../lib/sanity/image";
+import { useLanguage } from "@/context/LanguageContext";
+import { useOverlay } from "@/context/OverlayContext";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { urlFor } from "@/lib/sanity/image";
 import "./Navbar.css";
 
 type NavItem = {
