@@ -55,8 +55,9 @@
     object-position: 60% 60%;
   }
 
-.page-hero__content {
-  left: 20px;
-  right: 20px;
-  bottom: 24px;
+  .page-hero__content {
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+  }
 }

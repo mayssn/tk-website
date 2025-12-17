@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--nav-h);
+  height: 80px;
   z-index: 100;
   background: #fff;
   border-bottom: 1px solid #eee;
@@ -22,7 +22,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22px;
+
+  min-width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* ✅ center properly */
+  padding: 0 22px; /* ✅ spacing INSIDE, not margins outside */
+
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -35,18 +41,17 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  height: 200px;
 }
 
 .tk-nav__logo img {
-  height: 48px; /* mobile */
-  max-height: 100%;
-  object-fit: contain;
+  height: 200px;
 }
 
 /* Desktop logo */
 @media (min-width: 768px) {
   .tk-nav__logo img {
-    height: 56px;
+    height: 200px;
   }
 }
 
