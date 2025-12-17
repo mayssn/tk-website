@@ -36,15 +36,27 @@
   cursor: pointer;
 }
 @media (max-width: 768px) {
-  @media (max-width: 768px) {
-    .page-hero__img {
-      object-position: 70% 60%;
-    }
+  .page-hero__img {
+    object-position: 60% 60%;
   }
 
-  .page-hero__content {
-    left: 20px;
-    right: 20px;
-    bottom: 24px;
+  /* MARINE */
+  .hero--marine .page-hero__img {
+    object-position: 0% 60%;
   }
+
+  /* TRUCKS */
+  .hero--trucks .page-hero__img {
+    object-position: 30% 60%;
+  }
+
+  /* TRAILERS */
+  .hero--trailers .page-hero__img {
+    object-position: 60% 60%;
+  }
+
+.page-hero__content {
+  left: 20px;
+  right: 20px;
+  bottom: 24px;
 }

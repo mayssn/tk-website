@@ -20,7 +20,7 @@
 .trusted__track {
   display: flex;
   width: max-content;
-  animation: scroll 30s linear infinite; /* SLOWER */
+  animation: scroll 20s linear infinite; /* SLOWER */
   will-change: transform;
 }
 
@@ -52,4 +52,9 @@
 /* optional pause on hover */
 .trusted__marquee:hover .trusted__track {
   animation-play-state: paused;
+}
+@media (max-width: 900px) {
+  .trusted__track {
+    animation: scroll 5s linear infinite; /* SLOWER */
+  }
 }

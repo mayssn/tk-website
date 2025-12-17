@@ -35,6 +35,7 @@ export default function MarinePage() {
   return (
     <>
       <PageHero
+        className="hero--marine"
         title={heroTitle}
         imageUrl={heroImageUrl}
         showContact

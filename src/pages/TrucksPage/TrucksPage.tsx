@@ -31,6 +31,7 @@ export default function TrucksPage() {
   return (
     <>
       <PageHero
+        className="hero--trucks"
         title={heroTitle}
         imageUrl={heroImageUrl}
         showContact

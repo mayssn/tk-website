@@ -38,6 +38,7 @@ export default function TrailersPage() {
   return (
     <>
       <PageHero
+        className="hero--trailers"
         title={heroTitle}
         imageUrl={heroImageUrl}
         showContact

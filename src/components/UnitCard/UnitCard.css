@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 28px;
+  max-width: 100vw;
 
   background: #fafbfc;
   border-radius: 18px;

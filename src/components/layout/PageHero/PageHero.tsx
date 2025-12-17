@@ -5,6 +5,7 @@ type Props = {
   imageUrl: string;
   showContact?: boolean;
   onContactClick?: () => void;
+  className?: string; //
 };
 
 export default function PageHero({
@@ -12,9 +13,10 @@ export default function PageHero({
   imageUrl,
   showContact = false,
   onContactClick,
+  className = "",
 }: Props) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero ${className}`}>
       {imageUrl && <img className="page-hero__img" src={imageUrl} alt="" />}
 
       <div className="page-hero__content">
