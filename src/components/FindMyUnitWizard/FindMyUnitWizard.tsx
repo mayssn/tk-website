@@ -11,12 +11,12 @@ import type {
   Energy,
   PowerChoice,
 } from "../../pages/website/findMyUnit/FindMyUnit/FindMyUnit";
-// ⬆️ If this import path is annoying, tell me your exact file location and I’ll correct it.
-// Alternative: duplicate the types locally.
 
 type Labels = Record<string, any>;
 
 type Props = {
+  mode?: "home" | "trucks";
+
   need: Need;
   setNeed: (v: Need) => void;
 
@@ -31,6 +31,7 @@ type Props = {
 };
 
 export default function FindMyUnitWizard({
+  mode = "home",
   need,
   setNeed,
   vehicle,
@@ -47,6 +48,15 @@ export default function FindMyUnitWizard({
 
   const [powerOpen, setPowerOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const isTrucksMode = mode === "trucks";
+  const showVehicleQuestion = !isTrucksMode;
+
+  // In trucks mode, lock the wizard to truck
+  useEffect(() => {
+    if (isTrucksMode && vehicle !== "truck") setVehicle("truck");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTrucksMode]);
 
   useEffect(() => {
     client.fetch(FIND_LABELS_QUERY).then((data) => setLabels(data || {}));
@@ -108,11 +118,11 @@ export default function FindMyUnitWizard({
     "What’s the difference?"
   );
 
-  // SHOW RULES
-  const isTruck = vehicle === "truck";
+  // logic
+  const isTruck = isTrucksMode ? true : vehicle === "truck";
   const isTruckHeatMode = isTruck && need === "coolingHeating";
 
-  // ✅ If Cooling+Heating + Truck: skip Q3/Q4
+  // Cooling+Heating + Truck => skip Q3/Q4
   const showElectricQuestion = isTruck && !isTruckHeatMode;
   const showPowerQuestion = isTruck && !isTruckHeatMode && energy === "fuel";
 
@@ -137,7 +147,12 @@ export default function FindMyUnitWizard({
           <button
             type="button"
             className={`fmu__pill ${need === "cooling" ? "is-active" : ""}`}
-            onClick={() => setNeed("cooling")}
+            onClick={() => {
+              setNeed("cooling");
+              setEnergy(null);
+              setPowerChoice(null);
+              setPowerOpen(false);
+            }}
           >
             {t("opt_cooling_en", "opt_cooling_ar", "Cooling")}
           </button>
@@ -145,7 +160,12 @@ export default function FindMyUnitWizard({
           <button
             type="button"
             className={`fmu__pill ${need === "coolingHeating" ? "is-active" : ""}`}
-            onClick={() => setNeed("coolingHeating")}
+            onClick={() => {
+              setNeed("coolingHeating");
+              setEnergy(null);
+              setPowerChoice(null);
+              setPowerOpen(false);
+            }}
           >
             {t(
               "opt_coolingHeating_en",
@@ -156,38 +176,55 @@ export default function FindMyUnitWizard({
         </div>
       </div>
 
-      {/* Q2 */}
-      <div className="fmu__block">
-        <div className="fmu__q">
-          {t("q_vehicle_en", "q_vehicle_ar", "What is your vehicle type?")}
+      {/* Q2 (HOME ONLY) */}
+      {showVehicleQuestion && (
+        <div className="fmu__block">
+          <div className="fmu__q">
+            {t("q_vehicle_en", "q_vehicle_ar", "What is your vehicle type?")}
+          </div>
+
+          <div className="fmu__segRow">
+            <button
+              type="button"
+              className={`fmu__seg ${vehicle === "trailer" ? "is-active" : ""}`}
+              onClick={() => {
+                setVehicle("trailer");
+                setEnergy(null);
+                setPowerChoice(null);
+                setPowerOpen(false);
+              }}
+            >
+              {t("opt_trailer_en", "opt_trailer_ar", "Trailer")}
+            </button>
+
+            <button
+              type="button"
+              className={`fmu__seg ${vehicle === "truck" ? "is-active" : ""}`}
+              onClick={() => {
+                setVehicle("truck");
+                setEnergy(null);
+                setPowerChoice(null);
+                setPowerOpen(false);
+              }}
+            >
+              {t("opt_truck_en", "opt_truck_ar", "Truck/Van")}
+            </button>
+
+            <button
+              type="button"
+              className={`fmu__seg ${vehicle === "none" ? "is-active" : ""}`}
+              onClick={() => {
+                setVehicle("none");
+                setEnergy(null);
+                setPowerChoice(null);
+                setPowerOpen(false);
+              }}
+            >
+              {t("opt_noVehicle_en", "opt_noVehicle_ar", "I don’t have one")}
+            </button>
+          </div>
         </div>
-
-        <div className="fmu__segRow">
-          <button
-            type="button"
-            className={`fmu__seg ${vehicle === "trailer" ? "is-active" : ""}`}
-            onClick={() => setVehicle("trailer")}
-          >
-            {t("opt_trailer_en", "opt_trailer_ar", "Trailer")}
-          </button>
-
-          <button
-            type="button"
-            className={`fmu__seg ${vehicle === "truck" ? "is-active" : ""}`}
-            onClick={() => setVehicle("truck")}
-          >
-            {t("opt_truck_en", "opt_truck_ar", "Truck/Van")}
-          </button>
-
-          <button
-            type="button"
-            className={`fmu__seg ${vehicle === "none" ? "is-active" : ""}`}
-            onClick={() => setVehicle("none")}
-          >
-            {t("opt_noVehicle_en", "opt_noVehicle_ar", "I don’t have one")}
-          </button>
-        </div>
-      </div>
+      )}
 
       {/* Q3 Electric */}
       {vehicle !== "none" && showElectricQuestion && (
@@ -200,7 +237,11 @@ export default function FindMyUnitWizard({
             <button
               type="button"
               className={`fmu__pill ${energy === "electric" ? "is-active" : ""}`}
-              onClick={() => setEnergy("electric")}
+              onClick={() => {
+                setEnergy("electric");
+                setPowerChoice(null);
+                setPowerOpen(false);
+              }}
             >
               {t("opt_yes_en", "opt_yes_ar", "Yes")}
             </button>
@@ -208,7 +249,11 @@ export default function FindMyUnitWizard({
             <button
               type="button"
               className={`fmu__pill ${energy === "fuel" ? "is-active" : ""}`}
-              onClick={() => setEnergy("fuel")}
+              onClick={() => {
+                setEnergy("fuel");
+                setPowerChoice(null);
+                setPowerOpen(false);
+              }}
             >
               {t("opt_no_en", "opt_no_ar", "No")}
             </button>
@@ -255,9 +300,9 @@ export default function FindMyUnitWizard({
                     }}
                   >
                     <div className="fmu__itemTitle">{pSelfTitle}</div>
-                    {pSelfDesc && (
+                    {pSelfDesc ? (
                       <div className="fmu__itemDesc">{pSelfDesc}</div>
-                    )}
+                    ) : null}
                   </button>
 
                   <div className="fmu__divider" />
@@ -271,9 +316,9 @@ export default function FindMyUnitWizard({
                     }}
                   >
                     <div className="fmu__itemTitle">{pVpsTitle}</div>
-                    {pVpsDesc && (
+                    {pVpsDesc ? (
                       <div className="fmu__itemDesc">{pVpsDesc}</div>
-                    )}
+                    ) : null}
                   </button>
 
                   <div className="fmu__divider" />
@@ -287,7 +332,9 @@ export default function FindMyUnitWizard({
                     }}
                   >
                     <div className="fmu__itemTitle">{pVpTitle}</div>
-                    {pVpDesc && <div className="fmu__itemDesc">{pVpDesc}</div>}
+                    {pVpDesc ? (
+                      <div className="fmu__itemDesc">{pVpDesc}</div>
+                    ) : null}
                   </button>
                 </div>
               )}

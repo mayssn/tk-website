@@ -1,13 +1,13 @@
 .find-my-unit {
   width: 100%;
   background: #efefef;
-  padding: 44px 0 56px;
+  padding: 44px 50px;
 }
 
 .find-my-unit__inner {
-  width: min(1200px, calc(100% - 56px));
   margin: 0 auto;
-
+  max-width: 100%;
+  padding: 4px;
   display: grid;
   grid-template-columns: 560px 520px; /* LEFT fixed, RIGHT fixed */
   gap: 42px;
@@ -18,7 +18,6 @@
 .find-my-unit__left {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 /* RIGHT */
@@ -39,7 +38,6 @@
 
 .find-my-unit__wizard {
   width: 100%;
-  margin-left: 10px;
 }
 .find-my-unit__img {
   width: 100%;
@@ -151,6 +149,11 @@
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
+  .find-my-unit {
+    width: 100%;
+    background: #efefef;
+    padding: 44px 10px;
+  }
   .find-my-unit__right {
     display: none;
   }
@@ -173,27 +176,26 @@
   max-width: 520px; /* optional */
   margin-left: 0;
 }
-  .fmu__resultsTitle {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
+.fmu__resultsTitle {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
 
-  .find-my-unit__full .unit-card {
-    padding: 22px;
-  }
+.find-my-unit__full .unit-card {
+  padding: 22px;
+}
 
-  .find-my-unit__full .unit-card__title {
-    font-size: 24px;
-  }
+.find-my-unit__full .unit-card__title {
+  font-size: 24px;
+}
 
-  .find-my-unit__full .unit-card__actions {
-    grid-template-columns: 1fr; /* stack buttons */
-  }
+.find-my-unit__full .unit-card__actions {
+  grid-template-columns: 1fr; /* stack buttons */
+}
 
-  .find-my-unit__full .btn {
-    height: 50px;
-    font-size: 15px;
-  }
+.find-my-unit__full .btn {
+  height: 50px;
+  font-size: 15px;
 }
 
 /* important: do NOT reorder unless you want image on top */

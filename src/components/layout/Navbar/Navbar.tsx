@@ -95,10 +95,9 @@ export default function Navbar() {
         >
           {logo ? (
             <img
-              src={urlFor(logo).width(220).quality(90).url()}
+              src={urlFor(logo).width(600).quality(90).url()}
               alt="Thermo King"
-              style={{ height: 34, objectFit: "contain" }}
-              className="tk-nav_image"
+              className="tk-nav__logoImg"
             />
           ) : (
             <span>{loading ? "…" : "THERMO KING"}</span>

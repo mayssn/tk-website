@@ -150,7 +150,10 @@ export const TRUCKS_PAGE_QUERY = /* groq */ `
   bodyText_en,
   bodyText_ar,
   note_en,
-  note_ar
+  note_ar,
+
+  exploreTruckVanTitle_en,
+  exploreTruckVanTitle_ar
 }
 `;
 
