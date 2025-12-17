@@ -60,7 +60,6 @@ export default function TrailersPage() {
             <UnitCard
               key={unit._id}
               unit={unit}
-              lang={lang}
               onContact={() => openOverlay("contact")}
             />
           ))}

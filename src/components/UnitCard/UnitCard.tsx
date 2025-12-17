@@ -2,7 +2,10 @@ import { useLanguage } from "../../context/LanguageContext";
 import { urlFor } from "../../lib/sanity/image";
 import "./UnitCard.css";
 
-type Props = { unit: any; onContact?: () => void };
+type Props = {
+  unit: any;
+  onContact?: () => void;
+};
 
 export default function UnitCard({ unit, onContact }: Props) {
   const { lang } = useLanguage();

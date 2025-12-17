@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import OverlayShell from "@/components/overlays/OverlayShell/OverlayShell";
 import ContactDetails from "@/components/ContactDetails/ContactDetails";
-import { useIsMobile } from "@/hooks/useIsMobile.ts";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { useLanguage } from "@/context/LanguageContext";
 import { sanityClient } from "@/sanityClient";
 import { urlFor } from "@/lib/sanity/image";

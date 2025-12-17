@@ -10,7 +10,7 @@ import PageHero from "@/components/layout/PageHero/PageHero";
 import FindMyUnitWizard from "@/components/FindMyUnitWizard/FindMyUnitWizard";
 import ResultList from "@/components/FindMyUnitWizard/ResultList";
 
-import type { Need, Vehicle, Energy, PowerChoice } from "@/types/FindMyUnit";
+import type { Need, Vehicle, Energy, PowerChoice } from "@/types/findMyUnit";
 
 import "./TrucksPage.css";
 

@@ -83,6 +83,8 @@
   color: #333;
   line-height: 1.6;
   max-width: 720px;
+  padding: 30px;
+  font-size: 20px;
 }
 
 /* =========================
@@ -149,16 +151,6 @@
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 900px) {
-  .find-my-unit {
-    width: 100%;
-    background: #efefef;
-    padding: 44px 10px;
-  }
-  .find-my-unit__right {
-    display: none;
-  }
-}
 
 /* important: do NOT reorder unless you want image on top */
 .find-my-unit__right {
@@ -207,4 +199,18 @@
 .find-my-unit__img {
   max-width: 520px; /* optional */
   margin-left: 0;
+}
+
+@media (max-width: 900px) {
+  .find-my-unit {
+    width: 100%;
+    background: #efefef;
+    padding: 44px 10px;
+  }
+  .find-my-unit__right {
+    display: none;
+  }
+  .fmu__notice {
+    padding: 600px;
+  }
 }

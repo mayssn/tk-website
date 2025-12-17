@@ -47,7 +47,7 @@ export default function FindMyUnitWizard({
   const isTrucksMode = mode === "trucks";
   const showVehicleQuestion = !isTrucksMode;
 
-  // In trucks mode, lock the wizard to truck
+  // Trucks mode locks wizard to truck
   useEffect(() => {
     if (isTrucksMode && vehicle !== "truck") setVehicle("truck");
     // eslint-disable-next-line react-hooks/exhaustive-deps
