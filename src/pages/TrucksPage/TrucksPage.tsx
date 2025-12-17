@@ -29,14 +29,13 @@ export default function TrucksPage() {
     client.fetch(TRUCKS_PAGE_QUERY).then(setData).catch(console.error);
   }, []);
 
-  // ✅ match homepage resets (prevents weird state)
   useEffect(() => {
     setEnergy(null);
     setPowerChoice(null);
   }, [need]);
 
   useEffect(() => {
-    if (vehicle !== "truck" || vehicle === "none") {
+    if (vehicle !== "truck") {
       setEnergy(null);
       setPowerChoice(null);
     }
@@ -60,7 +59,6 @@ export default function TrucksPage() {
   const bodyText = lang === "ar" ? data.bodyText_ar : data.bodyText_en;
   const note = lang === "ar" ? data.note_ar : data.note_en;
 
-  // ✅ IMPORTANT: use your real schema field names
   const exploreTitle =
     lang === "ar" ? data.exploreTruckVanTitle_ar : data.exploreTruckVanTitle_en;
 

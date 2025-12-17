@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { sanityClient } from "@/sanityClient";
-import { useIsMobile } from "@/hooks/useIsMobile.ts";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
-import CopyText from "@/hooks/CopyText.jsx";
+import CopyText from "@/hooks/CopyText";
 import { SmartTel } from "@/hooks/SmartTel";
 import "./Footer.css";
 

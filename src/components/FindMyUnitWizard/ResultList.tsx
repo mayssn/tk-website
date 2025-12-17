@@ -6,7 +6,7 @@ import UnitCard from "../UnitCard/UnitCard";
 import "./ResultList.css";
 
 type Need = "cooling" | "coolingHeating";
-type Vehicle = "trailer" | "truck" | "none" | null;
+type Vehicle = "trailer" | "truck" | "none"; // ✅ FIX
 type Energy = "electric" | "fuel" | null;
 type PowerChoice = "self" | "vp_standby" | "vp_no_standby" | null;
 
@@ -31,7 +31,7 @@ type Unit = {
 
 type Props = {
   need: Need;
-  vehicle: Vehicle;
+  vehicle: Vehicle; // ✅ FIX (now includes "none")
   energy: Energy;
   powerChoice: PowerChoice;
 };
@@ -80,7 +80,6 @@ export default function ResultList({
       ? (labels?.contactText_ar ?? "")
       : (labels?.contactText_en ?? "");
 
-  // ✅ show rules (moved from wizard)
   const canShowResults =
     vehicle === "trailer" ||
     (vehicle === "truck" && need === "coolingHeating") ||
@@ -101,7 +100,7 @@ export default function ResultList({
       return list.filter((u) => u.vehicleType === "trailer");
     }
 
-    // ✅ Truck + Cooling+Heating => all trucks with heating
+    // Truck + Cooling+Heating
     if (vehicle === "truck" && need === "coolingHeating") {
       return list.filter(
         (u) => u.vehicleType === "truck" && u.coolingAndHeating === true
@@ -141,14 +140,12 @@ export default function ResultList({
 
   if (loading) return null;
 
-  // ✅ show contact text if no vehicle
   if (vehicle === "none") {
     return noVehicleText ? (
       <div className="fmu__notice">{noVehicleText}</div>
     ) : null;
   }
 
-  // ✅ hide entire results area until we’re ready
   if (!canShowResults) return null;
 
   return (

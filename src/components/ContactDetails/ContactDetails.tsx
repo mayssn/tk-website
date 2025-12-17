@@ -1,4 +1,4 @@
-import CopyText from "@/hooks/CopyText.jsx";
+import CopyText from "@/hooks/CopyText";
 import { SmartTel } from "@/hooks/SmartTel";
 import "./ContactDetails.css";
 
