@@ -92,7 +92,7 @@ export default function TrucksPage() {
               need={need}
               setNeed={setNeed}
               vehicle={vehicle}
-              setVehicle={setVehicle}
+              setVehicle={(v) => setVehicle(v ?? "truck")}
               energy={energy}
               setEnergy={setEnergy}
               powerChoice={powerChoice}

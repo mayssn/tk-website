@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./CopyText.css";
 
-export default function CopyText({ text, label, copiedLabel }) {
+type CopyTextProps = {
+  text?: string;
+  label?: string;
+  copiedLabel?: string;
+};
+
+export default function CopyText({ text, label, copiedLabel }: CopyTextProps) {
   const [show, setShow] = useState(false);
 
   async function onCopy() {

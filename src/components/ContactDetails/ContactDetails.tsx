@@ -52,7 +52,13 @@ function IconPin() {
   );
 }
 
-export default function ContactDetails({ data, lang, isMobile }) {
+type ContactDetailsProps = {
+  data?: any;
+  lang?: string;
+  isMobile?: boolean;
+};
+
+export default function ContactDetails({ data, lang, isMobile }: ContactDetailsProps) {
   const isAr = lang === "ar";
 
   const email = data?.emailAddress;

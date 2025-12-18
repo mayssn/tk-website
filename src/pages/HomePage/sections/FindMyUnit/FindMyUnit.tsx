@@ -17,7 +17,7 @@ type Props = {
 export default function FindMyUnit({ title, image }: Props) {
   // ✅ answers live in the parent (shared by wizard + results)
   const [need, setNeed] = useState<Need>("cooling");
-  const [vehicle, setVehicle] = useState<Vehicle>(null);
+  const [vehicle, setVehicle] = useState<Vehicle | null>(null);
   const [energy, setEnergy] = useState<Energy>(null);
   const [powerChoice, setPowerChoice] = useState<PowerChoice>(null);
 

@@ -31,7 +31,7 @@ type Unit = {
 
 type Props = {
   need: Need;
-  vehicle: Vehicle; // ✅ FIX (now includes "none")
+  vehicle: Vehicle | null; // can be null while user hasn't chosen
   energy: Energy;
   powerChoice: PowerChoice;
 };
@@ -88,7 +88,7 @@ export default function ResultList({
 
   const filteredUnits = useMemo(() => {
     if (!canShowResults) return [];
-    if (vehicle === "none") return [];
+    if (!vehicle || String(vehicle) === "none") return [];
 
     let list = [...units];
 

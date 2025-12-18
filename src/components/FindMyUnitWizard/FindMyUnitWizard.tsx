@@ -15,8 +15,8 @@ type Props = {
   need: Need;
   setNeed: (v: Need) => void;
 
-  vehicle: Vehicle;
-  setVehicle: (v: Vehicle) => void;
+  vehicle: Vehicle | null;
+  setVehicle: (v: Vehicle | null) => void;
 
   energy: Energy;
   setEnergy: (v: Energy) => void;
