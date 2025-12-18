@@ -5,7 +5,12 @@ type SmartTelProps = {
   className?: string;
 };
 
-export function SmartTel({ isMobile, value, hrefValue, className }: SmartTelProps) {
+export function SmartTel({
+  isMobile,
+  value,
+  hrefValue,
+  className,
+}: SmartTelProps) {
   if (!value) return null;
   return isMobile ? (
     <a className={className} href={`tel:${hrefValue}`} dir="ltr">
