@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { client } from "@/lib/sanity/client";
 import { urlFor } from "@/lib/sanity/image";
 import { HOME_PAGE_QUERY } from "@/queries/Homepage"; // ✅ use your existing file
 import { useLanguage } from "@/context/LanguageContext";
 import { Helmet } from "react-helmet-async";
 import Gallery from "@/components/Gallery/Gallery";
+import DOMPurify from "dompurify";
 
 import HeroHomepage from "@/pages/HomePage/sections/HeroHomepage/HeroHomepage";
 import Industries from "@/pages/HomePage/sections/Industries/Industries";
@@ -23,6 +24,14 @@ export default function HomePage() {
     client.fetch(HOME_PAGE_QUERY).then(setData);
   }, []);
 
+  const sanitizedEn = useMemo(() => {
+    return data?.seoBodyEn ? DOMPurify.sanitize(data.seoBodyEn) : "";
+  }, [data?.seoBodyEn]);
+
+  const sanitizedAr = useMemo(() => {
+    return data?.seoBodyAr ? DOMPurify.sanitize(data.seoBodyAr) : "";
+  }, [data?.seoBodyAr]);
+
   if (!data) return null;
 
   return (
@@ -34,6 +43,28 @@ export default function HomePage() {
         )}
         {data.seoKeywords && (
           <meta name="keywords" content={data.seoKeywords} />
+        )}
+        {/* Social preview (used by Facebook, WhatsApp, Twitter, etc.) */}
+        {typeof window !== "undefined" && (
+          <>
+            <meta property="og:title" content={data.seoTitle || ""} />
+            {data.metaDescription && (
+              <meta property="og:description" content={data.metaDescription} />
+            )}
+            <meta
+              property="og:image"
+              content={`${window.location.origin}/social-thumb.png`}
+            />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={data.seoTitle || ""} />
+            {data.metaDescription && (
+              <meta name="twitter:description" content={data.metaDescription} />
+            )}
+            <meta
+              name="twitter:image"
+              content={`${window.location.origin}/social-thumb.png`}
+            />
+          </>
         )}
       </Helmet>
       <HeroHomepage
@@ -79,16 +110,15 @@ export default function HomePage() {
       />
 
       {/* SEO bodies */}
-      {data.seoBodyEn && (
+      {sanitizedEn && (
         <section lang="en" className="seo-body en">
-          {/* Assuming seoBodyEn is HTML or plain text; render safely */}
-          <div dangerouslySetInnerHTML={{ __html: data.seoBodyEn }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizedEn }} />
         </section>
       )}
 
-      {data.seoBodyAr && (
+      {sanitizedAr && (
         <section lang="ar" dir="rtl" className="seo-body ar">
-          <div dangerouslySetInnerHTML={{ __html: data.seoBodyAr }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizedAr }} />
         </section>
       )}
     </div>
