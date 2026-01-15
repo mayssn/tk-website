@@ -51,5 +51,25 @@ export const HOME_PAGE_QUERY = /* groq */ `
     name,
     logo
   }
+  
+  // SEO + GALLERY
+  ,seoTitle,
+  metaDescription,
+  seoBodyEn,
+  seoBodyAr,
+  seoKeywords,
+  galleryTitle_en,
+  galleryTitle_ar,
+  gallery[]{
+    image{
+      asset->{
+        _id,
+        url,
+        metadata{dimensions,lqip,altText}
+      }
+    },
+    alt,
+    caption
+  }
 }
 `;

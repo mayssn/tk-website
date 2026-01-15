@@ -27,7 +27,7 @@
 .trusted__track {
   display: flex;
   width: max-content;
-  animation: trusted-scroll 20s linear infinite;
+  animation: trusted-scroll 25s linear infinite;
   will-change: transform;
 }
 
@@ -70,7 +70,7 @@
   }
 
   .trusted__track {
-    animation-duration: 10s;
+    animation-duration: 35s;
   }
 
   .trusted__logo {
@@ -79,5 +79,12 @@
 
   .trusted__logo img {
     height: 40px;
+  }
+}
+
+/* SMALLER TABLETS */
+@media (max-width: 600px) {
+  .trusted__track {
+    animation-duration: 50s;
   }
 }
